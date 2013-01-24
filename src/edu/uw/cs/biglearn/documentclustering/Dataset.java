@@ -5,9 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
-public class Dataset {
+public class Dataset implements Iterable<DataInstance>{
 	
 	private ArrayList<String> dictionary;
 	private ArrayList<DataInstance> rows;
@@ -58,5 +59,10 @@ public class Dataset {
 		System.out.println("P = " + dataset.featureDim());
 		for (int i = 0; i < 100; i++)
 			System.out.println(dataset.rows.get(i));
+	}
+
+	@Override
+	public Iterator<DataInstance> iterator() {
+		return rows.iterator();
 	}
 }
